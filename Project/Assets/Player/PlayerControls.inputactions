@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Move down",
+                    "name": "Move Down",
                     "type": "Button",
                     "id": "b9cbd125-6159-46ec-8ced-54e05db98e13",
                     "expectedControlType": "Button",
@@ -87,7 +87,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move down",
+                    "action": "Move Down",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
