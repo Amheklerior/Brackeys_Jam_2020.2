@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 5072356446918192634}
   - component: {fileID: 1093762203}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,6 +270,8 @@ MonoBehaviour:
   _leftPivot: {fileID: 5072356445399960808}
   _deltaRotation: 5
   _speed: 0.01
+  _rewindSpeeupFactor: 3
+  _imprint: 0
 --- !u!54 &1093762203
 Rigidbody:
   m_ObjectHideFlags: 0

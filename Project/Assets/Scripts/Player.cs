@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using Amheklerior.Core.Command;
 
@@ -18,6 +19,7 @@ namespace Amheklerior.Rewind {
         [Space][Header("Settings:")] 
         [SerializeField] private int _deltaRotation = 9;
         [SerializeField] private float _speed = 0.01f;
+        [SerializeField] private float _rewindSpeeupFactor = 2.5f;
 
         private bool _isRewinding;
 
@@ -174,13 +176,14 @@ namespace Amheklerior.Rewind {
                     break;
             }
         }
-        
-        // TODO -- Refactor the common code in one coroutine function?!
 
+        // TODO -- Refactor the common code in one coroutine function?!
+        
         private IEnumerator FlipUp() {
             _isMoving = true;
-            for (int i = 0; i < COMPLETE_ROTATION / _deltaRotation; i++) {
-                _player.RotateAround(_upPivot.position, Vector3.right, _deltaRotation);
+            var deltaRotation = _isRewinding ? _deltaRotation * _rewindSpeeupFactor : _deltaRotation;
+            for (int i = 0; i < COMPLETE_ROTATION / deltaRotation; i++) {
+                _player.RotateAround(_upPivot.position, Vector3.right, deltaRotation);
                 yield return _waitForSeconds;
             }
             _center.position = _player.position;
@@ -189,8 +192,9 @@ namespace Amheklerior.Rewind {
 
         private IEnumerator FlipDown() {
             _isMoving = true;
-            for (int i = 0; i < COMPLETE_ROTATION / _deltaRotation; i++) {
-                _player.RotateAround(_downPivot.position, Vector3.left, _deltaRotation);
+            var deltaRotation = _isRewinding ? _deltaRotation * _rewindSpeeupFactor : _deltaRotation;
+            for (int i = 0; i < COMPLETE_ROTATION / deltaRotation; i++) {
+                _player.RotateAround(_downPivot.position, Vector3.left, deltaRotation);
                 yield return _waitForSeconds;
             }
             _center.position = _player.position;
@@ -199,8 +203,9 @@ namespace Amheklerior.Rewind {
 
         private IEnumerator FlipLeft() {
             _isMoving = true;
-            for (int i = 0; i < COMPLETE_ROTATION / _deltaRotation; i++) {
-                _player.RotateAround(_leftPivot.position, Vector3.forward, _deltaRotation);
+            var deltaRotation = _isRewinding ? _deltaRotation * _rewindSpeeupFactor : _deltaRotation;
+            for (int i = 0; i < COMPLETE_ROTATION / deltaRotation; i++) {
+                _player.RotateAround(_leftPivot.position, Vector3.forward, deltaRotation);
                 yield return _waitForSeconds;
             }
             _center.position = _player.position;
@@ -209,8 +214,9 @@ namespace Amheklerior.Rewind {
 
         private IEnumerator FlipRight() {
             _isMoving = true;
-            for (int i = 0; i < COMPLETE_ROTATION / _deltaRotation; i++) {
-                _player.RotateAround(_rightPivot.position, Vector3.back, _deltaRotation);
+            var deltaRotation = _isRewinding ? _deltaRotation * _rewindSpeeupFactor : _deltaRotation;
+            for (int i = 0; i < COMPLETE_ROTATION / deltaRotation; i++) {
+                _player.RotateAround(_rightPivot.position, Vector3.back, deltaRotation);
                 yield return _waitForSeconds;
             }
             _center.position = _player.position;
@@ -228,7 +234,7 @@ namespace Amheklerior.Rewind {
 
         private bool HasImprint => _imprint != Imprint.NONE;
 
-        private bool IsMarkedWith(Imprint imprint) => _imprint == imprint;
+        public bool IsMarkedWith(Imprint imprint) => _imprint == imprint;
         
         public void MarkWith(Imprint imprint) {
             if (!HasImprint && !_isRewinding) 
