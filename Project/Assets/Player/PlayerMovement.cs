@@ -19,7 +19,9 @@ namespace Amheklerior.Rewind {
         [SerializeField] private int _deltaRotation = 9;
         [SerializeField] private float _speed = 0.01f;
 
-        
+        private bool _isRewinding;
+
+
         void Awake() {
             SetupPlayer();
             WireInput();
@@ -34,28 +36,30 @@ namespace Amheklerior.Rewind {
 
             switch (_input) {
                 case PlayerInput.UP:
-                    GlobalCommandExecutor.Execute(() => MoveUp(), () => MoveDown());
+                    Move(Direction.UP);
                     break;
 
                 case PlayerInput.DOWN:
-                    GlobalCommandExecutor.Execute(() => MoveDown(), () => MoveUp());
+                    Move(Direction.DOWN);
                     break;
 
                 case PlayerInput.LEFT:
-                    GlobalCommandExecutor.Execute(() => MoveLeft(), () => MoveRight());
+                    Move(Direction.LEFT);
                     break;
 
                 case PlayerInput.RIGHT:
-                    GlobalCommandExecutor.Execute(() => MoveRight(), () => MoveLeft());
+                    Move(Direction.RIGHT);
                     break;
 
                 case PlayerInput.REWIND:
-                    if (GlobalCommandExecutor.CanUndo()) GlobalCommandExecutor.Undo();
+                    if (!_isMoving && GlobalCommandExecutor.CanUndo()) {
+                        GlobalCommandExecutor.Undo();
+                        _isRewinding = true;
+                    }
                     break;
             }
         }
         
-
 
         #region Input handling
 
@@ -94,6 +98,8 @@ namespace Amheklerior.Rewind {
 
         #region Movement
 
+        private enum Direction { UP, DOWN, LEFT, RIGHT }
+
         private Transform _player;
         private WaitForSeconds _waitForSeconds;
         private bool _isMoving;
@@ -103,15 +109,74 @@ namespace Amheklerior.Rewind {
             _waitForSeconds = new WaitForSeconds(_speed);
         }
 
+        private void Move(Direction dir) {
+            if (_isMoving) return;
 
-        private void MoveUp() {
-            if (!_isMoving) {
-                StartCoroutine(FlipUp());
-                _isMoving = true;
+            _isRewinding = false;
+
+            switch (dir) {
+                case Direction.UP:
+                    MoveUp();
+                    break;
+
+                case Direction.DOWN:
+                    MoveDown();
+                    break;
+
+                case Direction.LEFT:
+                    MoveLeft();
+                    break;
+
+                case Direction.RIGHT:
+                    MoveRight();
+                    break;
             }
         }
 
+        private void MoveUp() => GlobalCommandExecutor.Execute(
+            () => FlipCube(Direction.UP),
+            () => FlipCube(Direction.DOWN)
+        );
+
+        private void MoveDown() => GlobalCommandExecutor.Execute(
+            () => FlipCube(Direction.DOWN),
+            () => FlipCube(Direction.UP)
+        );
+
+        private void MoveLeft() => GlobalCommandExecutor.Execute(
+            () => FlipCube(Direction.LEFT),
+            () => FlipCube(Direction.RIGHT)
+        );
+
+        private void MoveRight() => GlobalCommandExecutor.Execute(
+            () => FlipCube(Direction.RIGHT),
+            () => FlipCube(Direction.LEFT)
+        );
+
+        #region Animation
+
+        private void FlipCube(Direction dir) {
+            switch (dir) {
+                case Direction.UP:
+                    StartCoroutine(FlipUp());
+                    break;
+
+                case Direction.DOWN:
+                    StartCoroutine(FlipDown());
+                    break;
+
+                case Direction.LEFT:
+                    StartCoroutine(FlipLeft());
+                    break;
+
+                case Direction.RIGHT:
+                    StartCoroutine(FlipRight());
+                    break;
+            }
+        }
+        
         private IEnumerator FlipUp() {
+            _isMoving = true;
             for (int i = 0; i < COMPLETE_ROTATION / _deltaRotation; i++) {
                 _player.RotateAround(_upPivot.position, Vector3.right, _deltaRotation);
                 yield return _waitForSeconds;
@@ -120,14 +185,8 @@ namespace Amheklerior.Rewind {
             _isMoving = false;
         }
 
-        private void MoveDown() {
-            if (!_isMoving) {
-                StartCoroutine(FlipDown());
-                _isMoving = true;
-            }
-        }
-
         private IEnumerator FlipDown() {
+            _isMoving = true;
             for (int i = 0; i < COMPLETE_ROTATION / _deltaRotation; i++) {
                 _player.RotateAround(_downPivot.position, Vector3.left, _deltaRotation);
                 yield return _waitForSeconds;
@@ -136,14 +195,8 @@ namespace Amheklerior.Rewind {
             _isMoving = false;
         }
 
-        private void MoveLeft() {
-            if (!_isMoving) {
-                StartCoroutine(FlipLeft());
-                _isMoving = true;
-            }
-        }
-
         private IEnumerator FlipLeft() {
+            _isMoving = true;
             for (int i = 0; i < COMPLETE_ROTATION / _deltaRotation; i++) {
                 _player.RotateAround(_leftPivot.position, Vector3.forward, _deltaRotation);
                 yield return _waitForSeconds;
@@ -152,20 +205,35 @@ namespace Amheklerior.Rewind {
             _isMoving = false;
         }
 
-        private void MoveRight() {
-            if (!_isMoving) {
-                StartCoroutine(FlipRight());
-                _isMoving = true;
-            }
-        }
-
         private IEnumerator FlipRight() {
+            _isMoving = true;
             for (int i = 0; i < COMPLETE_ROTATION / _deltaRotation; i++) {
                 _player.RotateAround(_rightPivot.position, Vector3.back, _deltaRotation);
                 yield return _waitForSeconds;
             }
             _center.position = _player.position;
             _isMoving = false;
+        }
+
+        #endregion
+
+        #endregion
+
+
+        #region Imprinting
+
+        private Imprint _imprint = Imprint.NONE;
+
+        private bool HasImprint => _imprint != Imprint.NONE;
+
+        private bool IsMarkedWith(Imprint imprint) => _imprint == imprint;
+
+        private void ClearImprint() => _imprint = Imprint.NONE;
+
+        public void MarkWith(Imprint imprint) {
+            if (!HasImprint) _imprint = imprint;
+            else if (IsMarkedWith(imprint) && _isRewinding)
+                ClearImprint();
         }
 
         #endregion
