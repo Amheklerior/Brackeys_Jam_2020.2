@@ -8,10 +8,8 @@ namespace Amheklerior.Rewind {
 
         [SerializeField] private Imprint _type;
 
-        private void OnTriggerEnter(Collider other) {
-            Debug.Log("Imprinting: " + _type);
-        }
-
+        private void OnTriggerEnter(Collider other) => other.GetComponent<PlayerMovement>().MarkWith(_type);
+        
     }
 
 }

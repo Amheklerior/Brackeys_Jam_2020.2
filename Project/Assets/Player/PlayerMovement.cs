@@ -222,18 +222,24 @@ namespace Amheklerior.Rewind {
 
         #region Imprinting
 
-        private Imprint _imprint = Imprint.NONE;
+        [SerializeField] private Imprint _imprint = Imprint.NONE;
 
         private bool HasImprint => _imprint != Imprint.NONE;
 
         private bool IsMarkedWith(Imprint imprint) => _imprint == imprint;
-
-        private void ClearImprint() => _imprint = Imprint.NONE;
-
+        
         public void MarkWith(Imprint imprint) {
-            if (!HasImprint) _imprint = imprint;
-            else if (IsMarkedWith(imprint) && _isRewinding)
-                ClearImprint();
+            if (!HasImprint && !_isRewinding) {
+                Debug.Log("Mark");
+                _imprint = imprint;
+
+            } else if (IsMarkedWith(imprint) && _isRewinding) { 
+                Debug.Log("CLEAR");
+                _imprint = Imprint.NONE;
+
+            } else {
+                Debug.Log("DO NOTHING");
+            }
         }
 
         #endregion
