@@ -3,8 +3,8 @@ using UnityEngine;
 using Amheklerior.Core.Command;
 
 namespace Amheklerior.Rewind {
-
-    public class PlayerMovement : MonoBehaviour {
+    
+    public class Player : MonoBehaviour {
 
         private const int COMPLETE_ROTATION = 90;
 
@@ -132,7 +132,7 @@ namespace Amheklerior.Rewind {
                     break;
             }
         }
-
+        
         private void MoveUp() => GlobalCommandExecutor.Execute(
             () => FlipCube(Direction.UP),
             () => FlipCube(Direction.DOWN)
@@ -175,6 +175,8 @@ namespace Amheklerior.Rewind {
             }
         }
         
+        // TODO -- Refactor the common code in one coroutine function?!
+
         private IEnumerator FlipUp() {
             _isMoving = true;
             for (int i = 0; i < COMPLETE_ROTATION / _deltaRotation; i++) {
@@ -229,17 +231,12 @@ namespace Amheklerior.Rewind {
         private bool IsMarkedWith(Imprint imprint) => _imprint == imprint;
         
         public void MarkWith(Imprint imprint) {
-            if (!HasImprint && !_isRewinding) {
-                Debug.Log("Mark");
+            if (!HasImprint && !_isRewinding) 
                 _imprint = imprint;
 
-            } else if (IsMarkedWith(imprint) && _isRewinding) { 
-                Debug.Log("CLEAR");
+            else if (IsMarkedWith(imprint) && _isRewinding)
                 _imprint = Imprint.NONE;
-
-            } else {
-                Debug.Log("DO NOTHING");
-            }
+            
         }
 
         #endregion
