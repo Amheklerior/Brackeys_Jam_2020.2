@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.amheklerior.core-library": {
+      "version": "https://github.com/Amheklerior/unity-core-library.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e47f18fa2d7aeed4bd4356107167e020f3948c24"
+    },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,

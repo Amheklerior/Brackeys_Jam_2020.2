@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Amheklerior.Core.Command;
 
 namespace Amheklerior.Rewind {
 
@@ -33,19 +34,23 @@ namespace Amheklerior.Rewind {
 
             switch (_input) {
                 case PlayerInput.UP:
-                    MoveUp();
+                    GlobalCommandExecutor.Execute(() => MoveUp(), () => MoveDown());
                     break;
 
                 case PlayerInput.DOWN:
-                    MoveDown();
+                    GlobalCommandExecutor.Execute(() => MoveDown(), () => MoveUp());
                     break;
 
                 case PlayerInput.LEFT:
-                    MoveLeft();
+                    GlobalCommandExecutor.Execute(() => MoveLeft(), () => MoveRight());
                     break;
 
                 case PlayerInput.RIGHT:
-                    MoveRight();
+                    GlobalCommandExecutor.Execute(() => MoveRight(), () => MoveLeft());
+                    break;
+
+                case PlayerInput.REWIND:
+                    if (GlobalCommandExecutor.CanUndo()) GlobalCommandExecutor.Undo();
                     break;
             }
         }
@@ -54,7 +59,7 @@ namespace Amheklerior.Rewind {
 
         #region Input handling
 
-        private enum PlayerInput { NONE, UP, DOWN, LEFT, RIGHT }
+        private enum PlayerInput { NONE, UP, DOWN, LEFT, RIGHT, REWIND }
 
         private PlayerControls _controls;
         private PlayerInput _input;
@@ -79,6 +84,9 @@ namespace Amheklerior.Rewind {
 
             _controls.Actions.MoveRight.performed += ctx => _input = PlayerInput.RIGHT;
             _controls.Actions.MoveRight.canceled += ctx => _input = PlayerInput.NONE;
+
+            _controls.Actions.Rewind.performed += ctx => _input = PlayerInput.REWIND;
+            _controls.Actions.Rewind.canceled += ctx => _input = PlayerInput.NONE;
         }
 
         #endregion
