@@ -10,6 +10,7 @@ namespace Amheklerior.Rewind {
         private const int COMPLETE_ROTATION = 90;
 
         [Header("Dependencies:")]
+        [SerializeField] private Transform _checkerGroup;
         [SerializeField] private Transform _center;
         [SerializeField] private Transform _upPivot;
         [SerializeField] private Transform _downPivot;
@@ -100,11 +101,16 @@ namespace Amheklerior.Rewind {
 
         #region Movement
 
-        private enum Direction { UP, DOWN, LEFT, RIGHT }
-
+        public enum Direction { UP, DOWN, LEFT, RIGHT }
+        
         private Transform _player;
         private WaitForSeconds _waitForSeconds;
         private bool _isMoving;
+
+        public bool CanMoveUp { get; set; } = true;
+        public bool CanMoveDown { get; set; } = true;
+        public bool CanMoveLeft { get; set; } = true;
+        public bool CanMoveRight { get; set; } = true;
 
         private void SetupPlayer() {
             _player = transform;
@@ -118,18 +124,22 @@ namespace Amheklerior.Rewind {
 
             switch (dir) {
                 case Direction.UP:
+                    if (!CanMoveUp) return;
                     MoveUp();
                     break;
 
                 case Direction.DOWN:
+                    if (!CanMoveDown) return;
                     MoveDown();
                     break;
 
                 case Direction.LEFT:
+                    if (!CanMoveLeft) return;
                     MoveLeft();
                     break;
 
                 case Direction.RIGHT:
+                    if (!CanMoveRight) return;
                     MoveRight();
                     break;
             }
@@ -187,6 +197,7 @@ namespace Amheklerior.Rewind {
                 yield return _waitForSeconds;
             }
             _center.position = _player.position;
+            _checkerGroup.position = _player.position;
             _isMoving = false;
         }
 
@@ -198,6 +209,7 @@ namespace Amheklerior.Rewind {
                 yield return _waitForSeconds;
             }
             _center.position = _player.position;
+            _checkerGroup.position = _player.position;
             _isMoving = false;
         }
 
@@ -209,6 +221,7 @@ namespace Amheklerior.Rewind {
                 yield return _waitForSeconds;
             }
             _center.position = _player.position;
+            _checkerGroup.position = _player.position;
             _isMoving = false;
         }
 
@@ -220,6 +233,7 @@ namespace Amheklerior.Rewind {
                 yield return _waitForSeconds;
             }
             _center.position = _player.position;
+            _checkerGroup.position = _player.position;
             _isMoving = false;
         }
 

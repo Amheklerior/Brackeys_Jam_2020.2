@@ -32,9 +32,6 @@ namespace Amheklerior.Rewind {
                 _hasAlreadyInteracted = true;
             }
         }
-
-        // TODO delete
-        public void TEST_INTERACTION() => Debug.Log("YEAH.. YOU INTERACTED!");
-
+        
     }
 }
