@@ -121,24 +121,36 @@ namespace Amheklerior.Rewind {
                 case Direction.UP:
                     pivot = _upPivot.position;
                     direction = Vector3.right;
+                    _colliders.Translate(Vector3.forward);
+                    _pivots.position = _colliders.position;
+
                     break;
 
                 case Direction.DOWN:
                     pivot = _downPivot.position;
                     direction = Vector3.left;
+                    _colliders.Translate(Vector3.back);
+                    _pivots.position = _colliders.position;
+
                     break;
 
                 case Direction.LEFT:
                     pivot = _leftPivot.position;
                     direction = Vector3.forward;
+                    _colliders.Translate(Vector3.left);
+                    _pivots.position = _colliders.position;
+
                     break;
 
                 case Direction.RIGHT:
                     pivot = _rightPivot.position;
                     direction = Vector3.back;
+                    _colliders.Translate(Vector3.right);
+                    _pivots.position = _colliders.position;
+
                     break;
             }
-
+            
             var deltaRotation = IsRewinding
                 ? _deltaRotation * _rewindSpeeupFactor
                 : _deltaRotation;
@@ -148,8 +160,6 @@ namespace Amheklerior.Rewind {
                 yield return _waitForSeconds;
             }
 
-            _colliders.position = _player.position;
-            _pivots.position = _player.position;
             _isMoving = false;
         }
 
