@@ -1,22 +1,36 @@
 ﻿using UnityEngine;
+using Amheklerior.Core.EventSystem;
 
 namespace Amheklerior.Rewind {
     
     [RequireComponent(typeof(PlayerMovement))]
     public class Player : MonoBehaviour {
 
+        [Header("Events")]
+        [SerializeField] private GameEvent _playerInputEnabled;
+        [SerializeField] private GameEvent _playerInputDisabled;
+
         private PlayerInput _playerInput;
         private PlayerMovement _player;
+
+        private void EnablePlayerInput() => _playerInput.EnableInput();
+        private void DisablePlayerInput() => _playerInput.DisableInput();
 
         void Awake() {
             _player = GetComponent<PlayerMovement>();
             _playerInput = new PlayerInput();
         }
-        
-        private void OnEnable() => _playerInput.EnableInput();
 
-        private void OnDisable() => _playerInput.DisableInput();
-        
+        private void OnEnable() {
+            _playerInputEnabled.Subscribe(EnablePlayerInput);
+            _playerInputDisabled.Subscribe(DisablePlayerInput);
+        }
+
+        private void OnDisable() {
+            _playerInputEnabled.Unsubscribe(EnablePlayerInput);
+            _playerInputDisabled.Unsubscribe(DisablePlayerInput);
+        }
+
         private void Update() {
             if (!_playerInput.IsInputGiven) return;
 

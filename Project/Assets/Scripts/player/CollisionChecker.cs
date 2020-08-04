@@ -7,7 +7,7 @@ namespace Amheklerior.Rewind {
         [SerializeField] private PlayerMovement _player;
         [SerializeField] private PlayerMovement.Direction _checkDir;
 
-        private void OnTriggerEnter(Collider other) {
+        private void OnTriggerStay(Collider other) {
             switch (_checkDir) {
                 case PlayerMovement.Direction.UP:
                     _player.FreeSlotUp = false;

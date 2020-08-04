@@ -44,9 +44,10 @@ namespace Amheklerior.Rewind {
                 case Direction.LEFT:
                     return !_isMoving && FreeSlotLeft;
 
-                default:
+                case Direction.RIGHT:
                     return !_isMoving && FreeSlotRight;
             }
+            return false;
         }
 
         public void Move(Direction dir) {

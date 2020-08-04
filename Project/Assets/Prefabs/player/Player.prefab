@@ -343,7 +343,7 @@ MonoBehaviour:
   _leftPivot: {fileID: 1876437730451288758}
   _rightPivot: {fileID: 1876437731805549464}
   _deltaRotation: 5
-  _speed: 0.02
+  _speed: 0.01
   _rewindSpeeupFactor: 3
 --- !u!114 &1876437731401703472
 MonoBehaviour:
@@ -357,6 +357,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4cc433c2d521134c9f2a59cace2ce6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerInputEnabled: {fileID: 11400000, guid: fee0fb574cc2cc04b9ed6ccd0c99521f,
+    type: 2}
+  _playerInputDisabled: {fileID: 11400000, guid: 08b1a8fba2be3484db3c730b9cd4a098,
+    type: 2}
 --- !u!1 &1876437731805549465
 GameObject:
   m_ObjectHideFlags: 0

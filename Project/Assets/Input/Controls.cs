@@ -118,52 +118,6 @@ namespace Amheklerior.Rewind
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""Game"",
-            ""id"": ""16b8a5ce-78f6-4d9a-a97a-bdefb7c7fdd4"",
-            ""actions"": [
-                {
-                    ""name"": ""NewGame"",
-                    ""type"": ""Button"",
-                    ""id"": ""f4f1f468-3d71-4318-b622-6f01e6d10ec1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Restart"",
-                    ""type"": ""Button"",
-                    ""id"": ""e3810140-06f9-4e79-8cc4-f8ff5c95e9b3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""b4834ab4-5777-4cb9-bd3f-3e9a478c7f3d"",
-                    ""path"": ""<Keyboard>/n"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""NewGame"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""23223816-91f0-4251-ac86-edd887828fbe"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Restart"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": []
@@ -175,10 +129,6 @@ namespace Amheklerior.Rewind
             m_Actions_MoveUp = m_Actions.FindAction("Move Up", throwIfNotFound: true);
             m_Actions_MoveDown = m_Actions.FindAction("Move Down", throwIfNotFound: true);
             m_Actions_Rewind = m_Actions.FindAction("Rewind", throwIfNotFound: true);
-            // Game
-            m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
-            m_Game_NewGame = m_Game.FindAction("NewGame", throwIfNotFound: true);
-            m_Game_Restart = m_Game.FindAction("Restart", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -289,47 +239,6 @@ namespace Amheklerior.Rewind
             }
         }
         public ActionsActions @Actions => new ActionsActions(this);
-
-        // Game
-        private readonly InputActionMap m_Game;
-        private IGameActions m_GameActionsCallbackInterface;
-        private readonly InputAction m_Game_NewGame;
-        private readonly InputAction m_Game_Restart;
-        public struct GameActions
-        {
-            private @Controls m_Wrapper;
-            public GameActions(@Controls wrapper) { m_Wrapper = wrapper; }
-            public InputAction @NewGame => m_Wrapper.m_Game_NewGame;
-            public InputAction @Restart => m_Wrapper.m_Game_Restart;
-            public InputActionMap Get() { return m_Wrapper.m_Game; }
-            public void Enable() { Get().Enable(); }
-            public void Disable() { Get().Disable(); }
-            public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(GameActions set) { return set.Get(); }
-            public void SetCallbacks(IGameActions instance)
-            {
-                if (m_Wrapper.m_GameActionsCallbackInterface != null)
-                {
-                    @NewGame.started -= m_Wrapper.m_GameActionsCallbackInterface.OnNewGame;
-                    @NewGame.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnNewGame;
-                    @NewGame.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnNewGame;
-                    @Restart.started -= m_Wrapper.m_GameActionsCallbackInterface.OnRestart;
-                    @Restart.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnRestart;
-                    @Restart.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnRestart;
-                }
-                m_Wrapper.m_GameActionsCallbackInterface = instance;
-                if (instance != null)
-                {
-                    @NewGame.started += instance.OnNewGame;
-                    @NewGame.performed += instance.OnNewGame;
-                    @NewGame.canceled += instance.OnNewGame;
-                    @Restart.started += instance.OnRestart;
-                    @Restart.performed += instance.OnRestart;
-                    @Restart.canceled += instance.OnRestart;
-                }
-            }
-        }
-        public GameActions @Game => new GameActions(this);
         public interface IActionsActions
         {
             void OnMoveLeft(InputAction.CallbackContext context);
@@ -337,11 +246,6 @@ namespace Amheklerior.Rewind
             void OnMoveUp(InputAction.CallbackContext context);
             void OnMoveDown(InputAction.CallbackContext context);
             void OnRewind(InputAction.CallbackContext context);
-        }
-        public interface IGameActions
-        {
-            void OnNewGame(InputAction.CallbackContext context);
-            void OnRestart(InputAction.CallbackContext context);
         }
     }
 }

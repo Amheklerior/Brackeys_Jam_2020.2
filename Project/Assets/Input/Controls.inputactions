@@ -103,52 +103,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "Game",
-            "id": "16b8a5ce-78f6-4d9a-a97a-bdefb7c7fdd4",
-            "actions": [
-                {
-                    "name": "NewGame",
-                    "type": "Button",
-                    "id": "f4f1f468-3d71-4318-b622-6f01e6d10ec1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Restart",
-                    "type": "Button",
-                    "id": "e3810140-06f9-4e79-8cc4-f8ff5c95e9b3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "b4834ab4-5777-4cb9-bd3f-3e9a478c7f3d",
-                    "path": "<Keyboard>/n",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NewGame",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "23223816-91f0-4251-ac86-edd887828fbe",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Restart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": []
