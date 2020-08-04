@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Amheklerior.Core.Command;
+using Amheklerior.Core.EventSystem;
 
 namespace Amheklerior.Rewind {
 
@@ -21,6 +22,7 @@ namespace Amheklerior.Rewind {
         [SerializeField] private int _deltaRotation = 5;
         [SerializeField] private float _speed = 0.01f;
         [SerializeField] private float _rewindSpeeupFactor = 3f;
+        [SerializeField] private GameEvent _flipCompletedEvent;
 
         #endregion
 
@@ -160,6 +162,8 @@ namespace Amheklerior.Rewind {
                 _player.RotateAround(pivot, direction, deltaRotation);
                 yield return _waitForSeconds;
             }
+
+            _flipCompletedEvent.Raise();
 
             _isMoving = false;
         }
