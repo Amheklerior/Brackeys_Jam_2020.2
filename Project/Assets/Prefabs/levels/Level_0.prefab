@@ -1127,18 +1127,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 996753974799269715}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1720195121125318499 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1876437731401703472, guid: 9f157f920b69a824ca8224e87b89d8f1,
-    type: 3}
-  m_PrefabInstance: {fileID: 996753974799269715}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4cc433c2d521134c9f2a59cace2ce6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &996753975262741926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1201,11 +1189,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9098364428047361811, guid: dc12c4d606e495f448e07ee3c2fe0d01,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 9098364428047361822, guid: dc12c4d606e495f448e07ee3c2fe0d01,
         type: 3}
       propertyPath: m_Name
@@ -1213,29 +1196,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9098364428047361823, guid: dc12c4d606e495f448e07ee3c2fe0d01,
         type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9098364428047361823, guid: dc12c4d606e495f448e07ee3c2fe0d01,
-        type: 3}
       propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 374840775}
-    - target: {fileID: 9098364428047361823, guid: dc12c4d606e495f448e07ee3c2fe0d01,
-        type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveDown
-      objectReference: {fileID: 0}
-    - target: {fileID: 9098364428047361823, guid: dc12c4d606e495f448e07ee3c2fe0d01,
-        type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9098364428047361823, guid: dc12c4d606e495f448e07ee3c2fe0d01,
-        type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 1720195121125318499}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc12c4d606e495f448e07ee3c2fe0d01, type: 3}
 --- !u!4 &8329069172175577781 stripped
@@ -1341,11 +1304,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trigger Imprinter
       objectReference: {fileID: 0}
-    - target: {fileID: 7238899302782466768, guid: 5d518e00614c3cc438ef0aea2fd9dd62,
-        type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 1720195121125318499}
     - target: {fileID: 7238899302782466770, guid: 5d518e00614c3cc438ef0aea2fd9dd62,
         type: 3}
       propertyPath: m_LocalPosition.x

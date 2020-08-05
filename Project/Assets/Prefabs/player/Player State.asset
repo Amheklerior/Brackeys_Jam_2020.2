@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c946bf209bc0d43b9b6559c2999cee, type: 3}
+  m_Name: Player State
+  m_EditorClassIdentifier: 
+  _startRewinding: {fileID: 11400000, guid: 9dbb1bda3ff1e5d46969c075470755f6, type: 2}
+  _stopRewinding: {fileID: 11400000, guid: e676b9d9d0d7eb64b9be2d4ededec592, type: 2}

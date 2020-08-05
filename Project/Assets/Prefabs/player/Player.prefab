@@ -336,6 +336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 584469b81b821f3459dfbb47a87949ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flipCompletedEvent: {fileID: 11400000, guid: bdb8d1d84dc7b984a9baec9fab2c6942,
+    type: 2}
+  _state: {fileID: 11400000, guid: 062dc12a04d9abb4e90966c9ad8db87c, type: 2}
   _colliders: {fileID: 1876437730983126194}
   _pivots: {fileID: 1876437732088975013}
   _upPivot: {fileID: 1876437732274605838}
@@ -343,10 +346,8 @@ MonoBehaviour:
   _leftPivot: {fileID: 1876437730451288758}
   _rightPivot: {fileID: 1876437731805549464}
   _deltaRotation: 5
-  _speed: 0.01
+  _speed: 0.012
   _rewindSpeeupFactor: 3
-  _flipCompletedEvent: {fileID: 11400000, guid: bdb8d1d84dc7b984a9baec9fab2c6942,
-    type: 2}
 --- !u!114 &1876437731401703472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +364,7 @@ MonoBehaviour:
     type: 2}
   _playerInputDisabled: {fileID: 11400000, guid: 08b1a8fba2be3484db3c730b9cd4a098,
     type: 2}
+  _state: {fileID: 11400000, guid: 062dc12a04d9abb4e90966c9ad8db87c, type: 2}
 --- !u!1 &1876437731805549465
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876437732223259811}
   - component: {fileID: 996753974823867603}
-  - component: {fileID: 996753974823867604}
+  - component: {fileID: 2001490532112147049}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -532,14 +534,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 50
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -617,7 +619,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &996753974823867604
+--- !u!114 &2001490532112147049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -626,12 +628,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1876437732223259836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf775e5daa8d61a4985c4bd4af03622f, type: 3}
+  m_Script: {fileID: 11500000, guid: a81b4b575586e5749b48c025272ced8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 11400000, guid: bdb8d1d84dc7b984a9baec9fab2c6942, type: 2}
+  _flip: {fileID: 11400000, guid: bdb8d1d84dc7b984a9baec9fab2c6942, type: 2}
+  _startRewind: {fileID: 11400000, guid: 9dbb1bda3ff1e5d46969c075470755f6, type: 2}
+  _stopRewind: {fileID: 11400000, guid: e676b9d9d0d7eb64b9be2d4ededec592, type: 2}
   _audioSource: {fileID: 996753974823867603}
-  _sound: {fileID: 11400000, guid: cb742f04f8490bf4fb161b0f2091e6b3, type: 2}
+  _flipSound: {fileID: 11400000, guid: cb742f04f8490bf4fb161b0f2091e6b3, type: 2}
+  _rewindSound: {fileID: 11400000, guid: f7361d4962486ac45b78b1a01eb70b64, type: 2}
 --- !u!1 &1876437732274605839
 GameObject:
   m_ObjectHideFlags: 0

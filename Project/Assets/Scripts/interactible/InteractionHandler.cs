@@ -3,34 +3,28 @@ using UnityEngine.Events;
 
 namespace Amheklerior.Rewind {
     
-    public enum InteractionType { SINGLE, MULTIPLE }
-
     public class InteractionHandler : MonoBehaviour {
 
         [Header("Dependencies:")]
-        [SerializeField] private Player _player;
+        [SerializeField] private PlayerState _player;
 
-        [Space][Header("Interaction Configuration:")]
+        [Space]
+        [Header("Settings:")]
         [SerializeField] private Imprint _requiredImprint;
-        [SerializeField] private InteractionType _interactionType;
         [SerializeField] private UnityEvent _onInteract;
 
-        private bool _hasAlreadyInteracted;
+        private bool _alreadyInteracted;
 
         private void Awake() {
+            if (_player == null) Debug.LogError("The player state ref is not set.", this);
             if (_requiredImprint == Imprint.NONE)
                 Debug.LogError("The interactible object has to require an imprint other than NONE.", this);
-            if (_player == null) Debug.LogError("The player ref is not set.", this);
         }
 
         private void OnTriggerEnter(Collider other) {
-            if (_interactionType == InteractionType.SINGLE && _hasAlreadyInteracted)
-                return;
-
-            if (_player.IsMarkedWith(_requiredImprint)) {
-                _onInteract?.Invoke();
-                _hasAlreadyInteracted = true;
-            }
+            if (!_player.IsMarkedWith(_requiredImprint) || _alreadyInteracted) return;
+            _alreadyInteracted = true;
+            _onInteract.Invoke();
         }
         
     }

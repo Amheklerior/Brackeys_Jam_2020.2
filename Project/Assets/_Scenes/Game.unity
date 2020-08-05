@@ -159,7 +159,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16836
+  m_Name: pb_Mesh-101876
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -322,7 +322,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20436
+  m_Name: pb_Mesh-101868
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -491,7 +491,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16830
+  m_Name: pb_Mesh-101870
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -654,7 +654,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16834
+  m_Name: pb_Mesh-101874
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -817,7 +817,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16832
+  m_Name: pb_Mesh-101872
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -980,7 +980,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16536
+  m_Name: pb_Mesh-101562
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1149,7 +1149,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16556
+  m_Name: pb_Mesh-101582
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1306,6 +1306,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1086549949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 374840775, guid: ce2cb0d1a4094434399407a3c0a11f3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 996753974823867599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb05cd0f5998e84d8e35287a7f4cb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1130269761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1540,7 +1552,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16558
+  m_Name: pb_Mesh-101584
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1709,6 +1721,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2772186574925530768}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1557862125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8067873775320796619, guid: e10b2e29c1f711a438a804940a7100bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8067873776591729704}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb05cd0f5998e84d8e35287a7f4cb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &996753974823867599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1800,7 +1824,39 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1211277801}
-    m_RemovedComponents: []
+    - target: {fileID: 8329069172175577785, guid: ce2cb0d1a4094434399407a3c0a11f3b,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329069172175577785, guid: ce2cb0d1a4094434399407a3c0a11f3b,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1086549949}
+    - target: {fileID: 8329069172175577785, guid: ce2cb0d1a4094434399407a3c0a11f3b,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329069172175577785, guid: ce2cb0d1a4094434399407a3c0a11f3b,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329069172175577785, guid: ce2cb0d1a4094434399407a3c0a11f3b,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329069172175577785, guid: ce2cb0d1a4094434399407a3c0a11f3b,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2856848460339064127, guid: ce2cb0d1a4094434399407a3c0a11f3b, type: 3}
+    - {fileID: 7733865033890226211, guid: ce2cb0d1a4094434399407a3c0a11f3b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce2cb0d1a4094434399407a3c0a11f3b, type: 3}
 --- !u!1 &996753974823867600 stripped
 GameObject:
@@ -1884,6 +1940,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 177521276}
     m_Modifications:
+    - target: {fileID: 1275990158849942418, guid: e10b2e29c1f711a438a804940a7100bb,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275990158849942418, guid: e10b2e29c1f711a438a804940a7100bb,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1557862125}
+    - target: {fileID: 1275990158849942418, guid: e10b2e29c1f711a438a804940a7100bb,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275990158849942418, guid: e10b2e29c1f711a438a804940a7100bb,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275990158849942418, guid: e10b2e29c1f711a438a804940a7100bb,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275990158849942418, guid: e10b2e29c1f711a438a804940a7100bb,
+        type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8067873775320796622, guid: e10b2e29c1f711a438a804940a7100bb,
         type: 3}
       propertyPath: m_Mesh
@@ -1984,7 +2070,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5009804371416178124, guid: e10b2e29c1f711a438a804940a7100bb, type: 3}
+    - {fileID: 682228567307915472, guid: e10b2e29c1f711a438a804940a7100bb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e10b2e29c1f711a438a804940a7100bb, type: 3}
 --- !u!1 &8067873776591729705 stripped
 GameObject:

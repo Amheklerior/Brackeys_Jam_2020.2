@@ -9,7 +9,12 @@ namespace Amheklerior.Rewind {
 
         #region Inspector interface 
 
+        [Header("Events:")]
+        [SerializeField] private GameEvent _flipCompletedEvent;
+
+        [Space]
         [Header("Dependencies:")]
+        [SerializeField] private PlayerState _state;
         [SerializeField] private Transform _colliders;
         [SerializeField] private Transform _pivots;
         [SerializeField] private Transform _upPivot;
@@ -22,7 +27,6 @@ namespace Amheklerior.Rewind {
         [SerializeField] private int _deltaRotation = 5;
         [SerializeField] private float _speed = 0.01f;
         [SerializeField] private float _rewindSpeeupFactor = 3f;
-        [SerializeField] private GameEvent _flipCompletedEvent;
 
         #endregion
 
@@ -32,9 +36,7 @@ namespace Amheklerior.Rewind {
         public bool FreeSlotDown { get; set; } = true;
         public bool FreeSlotLeft { get; set; } = true;
         public bool FreeSlotRight { get; set; } = true;
-
-        public bool IsRewinding { get; private set; }
-
+        
         public bool CanMove(Direction dir) {
             switch (dir) {
                 case Direction.UP:
@@ -53,7 +55,7 @@ namespace Amheklerior.Rewind {
         }
 
         public void Move(Direction dir) {
-            IsRewinding = false;
+            _state.IsRewinding = false;
             switch (dir) {
                 case Direction.UP:
                     MoveUp();
@@ -75,12 +77,9 @@ namespace Amheklerior.Rewind {
 
         public bool CanRewind => !_isMoving && GlobalCommandExecutor.CanUndo();
 
-        public void Rewind() {
-            GlobalCommandExecutor.Undo();
-            IsRewinding = true;
-        }
-
-
+        public void Rewind() => GlobalCommandExecutor.Undo();
+        
+        
         #region Internals
 
         private const int COMPLETE_ROTATION = 90;
@@ -90,6 +89,8 @@ namespace Amheklerior.Rewind {
         private bool _isMoving;
 
         private void Awake() {
+            if (_state == null)
+                Debug.LogError("The player state ref is not set.", this);
             _player = transform;
             _waitForSeconds = new WaitForSeconds(_speed);
         }
@@ -154,7 +155,7 @@ namespace Amheklerior.Rewind {
                     break;
             }
             
-            var deltaRotation = IsRewinding
+            var deltaRotation = _state.IsRewinding
                 ? _deltaRotation * _rewindSpeeupFactor
                 : _deltaRotation;
 
@@ -163,8 +164,9 @@ namespace Amheklerior.Rewind {
                 yield return _waitForSeconds;
             }
 
-            _flipCompletedEvent.Raise();
-
+            if (!_state.IsRewinding) 
+                _flipCompletedEvent.Raise();
+            
             _isMoving = false;
         }
 

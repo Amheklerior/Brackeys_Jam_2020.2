@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2950830822947632619}
   - component: {fileID: 2950830822947632618}
   - component: {fileID: 2950830822947632613}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Transport Imprinter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,5 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a051cd2d01aaa9643b7e90ed30cccb5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 11400000, guid: 062dc12a04d9abb4e90966c9ad8db87c, type: 2}
   _type: 2
-  _player: {fileID: 0}

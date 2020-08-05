@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86a226b3b12624645a6524e2f05225c6, type: 3}
-  m_Name: Player Flip Sound
+  m_Name: Rewind Sound 2
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 9e5110bc3df52434ca0f97246f66799d, type: 3}
-  volumeRange: {x: 0.8, y: 1}
-  pitchRange: {x: 0.8, y: 1.2}
+  - {fileID: 8300000, guid: a6e6cef1f3f39fc40b1a347fd904e688, type: 3}
+  volumeRange: {x: 1, y: 1}
+  pitchRange: {x: 1, y: 1}

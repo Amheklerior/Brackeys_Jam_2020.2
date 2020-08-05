@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 6d7248e64cc19b04fbbf69d65c4d9ed3, type: 3}
-  volumeRange: {x: 0.8, y: 1}
+  volumeRange: {x: 1, y: 1.2}
   pitchRange: {x: 0.8, y: 1.2}

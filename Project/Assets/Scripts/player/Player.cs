@@ -1,24 +1,37 @@
 ﻿using UnityEngine;
 using Amheklerior.Core.EventSystem;
+using Amheklerior.Core.Time;
 
 namespace Amheklerior.Rewind {
     
     [RequireComponent(typeof(PlayerMovement))]
     public class Player : MonoBehaviour {
 
-        [Header("Events")]
+        [Header("Events:")]
         [SerializeField] private GameEvent _playerInputEnabled;
         [SerializeField] private GameEvent _playerInputDisabled;
 
+        [Space]
+        [Header("Dependencies:")]
+        [SerializeField] private PlayerState _state;
+        
+        private PlayerMovement _playerController;
         private PlayerInput _playerInput;
-        private PlayerMovement _player;
+
+        private Timer _timer;
 
         private void EnablePlayerInput() => _playerInput.EnableInput();
         private void DisablePlayerInput() => _playerInput.DisableInput();
 
         void Awake() {
-            _player = GetComponent<PlayerMovement>();
+            if (_state == null)
+                Debug.LogError("The player state ref is not set.", this);
+            _playerController = GetComponent<PlayerMovement>();
             _playerInput = new PlayerInput();
+            _timer = new Timer(.5f, () => {
+                _state.IsRewinding = false;
+                _timer.Stop();
+            });
         }
 
         private void OnEnable() {
@@ -32,58 +45,45 @@ namespace Amheklerior.Rewind {
         }
 
         private void Update() {
-            if (!_playerInput.IsInputGiven) return;
-
             switch (_playerInput.Action) {
                 case Action.MOVE_UP:
-                    if (_player.CanMove(PlayerMovement.Direction.UP)) {
-                        _player.Move(PlayerMovement.Direction.UP);
+                    if (_playerController.CanMove(PlayerMovement.Direction.UP)) {
+                        _playerController.Move(PlayerMovement.Direction.UP);
                     }
                     break;
 
                 case Action.MOVE_DOWN:
-                    if (_player.CanMove(PlayerMovement.Direction.DOWN)) {
-                        _player.Move(PlayerMovement.Direction.DOWN);
+                    if (_playerController.CanMove(PlayerMovement.Direction.DOWN)) {
+                        _playerController.Move(PlayerMovement.Direction.DOWN);
                     }
                     break;
 
                 case Action.MOVE_LEFT:
-                    if (_player.CanMove(PlayerMovement.Direction.LEFT)) {
-                        _player.Move(PlayerMovement.Direction.LEFT);
+                    if (_playerController.CanMove(PlayerMovement.Direction.LEFT)) {
+                        _playerController.Move(PlayerMovement.Direction.LEFT);
                     }
                     break;
 
                 case Action.MOVE_RIGHT:
-                    if (_player.CanMove(PlayerMovement.Direction.RIGHT)) {
-                        _player.Move(PlayerMovement.Direction.RIGHT);
+                    if (_playerController.CanMove(PlayerMovement.Direction.RIGHT)) {
+                        _playerController.Move(PlayerMovement.Direction.RIGHT);
                     }
                     break;
 
                 case Action.REWIND:
-                    if (_player.CanRewind) _player.Rewind();
+                    if (_playerController.CanRewind) {
+                        if (!_state.IsRewinding) _state.IsRewinding = true;
+                        _playerController.Rewind();
+                    }
+                    break;
+
+                default:
+                    if (_state.IsRewinding && !_timer.IsRunning) _timer.Start();
+                    _timer.Tick(Time.deltaTime);
                     break;
             }
         }
-        
-        #region Imprinting
-
-        private Imprint _imprint = Imprint.NONE;
-
-        private bool HasImprint => _imprint != Imprint.NONE;
-
-        public bool IsMarkedWith(Imprint imprint) => _imprint == imprint;
-        
-        public void MarkWith(Imprint imprint) {
-            if (!HasImprint && !_player.IsRewinding) 
-                _imprint = imprint;
-
-            else if (IsMarkedWith(imprint) && _player.IsRewinding)
-                _imprint = Imprint.NONE;
-            
-        }
-
-        #endregion
 
     }
-    
+
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Amheklerior.Core.EventSystem;
+using Amheklerior.Core.Command;
 
 namespace Amheklerior.Rewind {
 
@@ -45,7 +46,6 @@ namespace Amheklerior.Rewind {
             _newGameEvent.Unsubscribe(StartNewGame);
             _levelCompleted.Unsubscribe(OnLevelCompleted);
         }
-
         
         private void StartNewGame() {
             HideMainMenu();
