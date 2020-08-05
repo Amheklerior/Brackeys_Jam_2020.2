@@ -3,7 +3,7 @@
 namespace Amheklerior.Rewind {
     
     public class Imprinter : MonoBehaviour {
-
+        
         [Header("Dependencies:")]
         [SerializeField] private PlayerState _player;
 
@@ -21,7 +21,7 @@ namespace Amheklerior.Rewind {
                 _player.MarkWith(_type);
 
             else if (_player.IsMarkedWith(_type) && _player.IsRewinding)
-                _player.ClearMark();
+                _player.RemoveMark();
         }
     }
 }

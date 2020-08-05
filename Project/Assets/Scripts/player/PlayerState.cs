@@ -8,11 +8,13 @@ namespace Amheklerior.Rewind {
 
         [SerializeField] private GameEvent _startRewinding;
         [SerializeField] private GameEvent _stopRewinding;
+        [SerializeField] private GameEvent _ImprintTaken;
+        [SerializeField] private GameEvent _imprintRemoved;
 
         private bool _rewind;
         private Imprint _imprint = Imprint.NONE;
-
-        private void OnEnable() => ClearMark();
+        
+        private void OnDisable() => ClearMark();
         
         public bool IsRewinding {
             get => _rewind;
@@ -26,10 +28,18 @@ namespace Amheklerior.Rewind {
         public bool HasImprint => _imprint != Imprint.NONE;
 
         public bool IsMarkedWith(Imprint imprint) => _imprint == imprint;
-        
-        public void MarkWith(Imprint imprint) => _imprint = imprint;
+
+        public void MarkWith(Imprint imprint) {
+            _imprint = imprint;
+            _ImprintTaken.Raise();
+        }
+
+        public void RemoveMark() {
+            ClearMark();
+            _imprintRemoved.Raise();
+        }
 
         public void ClearMark() => _imprint = Imprint.NONE;
-        
+
     }
 }

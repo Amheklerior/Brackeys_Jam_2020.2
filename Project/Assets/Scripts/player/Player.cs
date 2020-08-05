@@ -10,6 +10,7 @@ namespace Amheklerior.Rewind {
         [Header("Events:")]
         [SerializeField] private GameEvent _playerInputEnabled;
         [SerializeField] private GameEvent _playerInputDisabled;
+        [SerializeField] private GameEvent _levelCompleted;
 
         [Space]
         [Header("Dependencies:")]
@@ -42,11 +43,13 @@ namespace Amheklerior.Rewind {
         private void OnEnable() {
             _playerInputEnabled.Subscribe(EnablePlayerInput);
             _playerInputDisabled.Subscribe(DisablePlayerInput);
+            _levelCompleted.Subscribe(_state.ClearMark);
         }
 
         private void OnDisable() {
             _playerInputEnabled.Unsubscribe(EnablePlayerInput);
             _playerInputDisabled.Unsubscribe(DisablePlayerInput);
+            _levelCompleted.Unsubscribe(_state.ClearMark);
         }
 
         private void Update() {

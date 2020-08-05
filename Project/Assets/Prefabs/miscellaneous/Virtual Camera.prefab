@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361f626200156c946a41ae13fc7044b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camShake: {fileID: 11400000, guid: 077e2501de8cfdb42a7576ebf70a3399, type: 2}
-  _rewindEnabled: {fileID: 0}
-  _rewindDisabled: {fileID: 0}
+  _levelCompleted: {fileID: 11400000, guid: a1673c59595ee7e46831d551ec08e7df, type: 2}
+  _ImprintTaken: {fileID: 11400000, guid: 1ae9ceb801f092e44bc9fbc1226d8ef6, type: 2}
+  _imprintRemoved: {fileID: 11400000, guid: a9d26d9607aa0d34598f58912eb4f228, type: 2}
   _cameraShake: 1
   _shakeDuration: 0.3
   _shakeAmplitude: 1

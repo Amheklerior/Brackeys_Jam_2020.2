@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startRewinding: {fileID: 11400000, guid: 9dbb1bda3ff1e5d46969c075470755f6, type: 2}
   _stopRewinding: {fileID: 11400000, guid: e676b9d9d0d7eb64b9be2d4ededec592, type: 2}
+  _ImprintTaken: {fileID: 11400000, guid: 1ae9ceb801f092e44bc9fbc1226d8ef6, type: 2}
+  _imprintRemoved: {fileID: 11400000, guid: a9d26d9607aa0d34598f58912eb4f228, type: 2}
