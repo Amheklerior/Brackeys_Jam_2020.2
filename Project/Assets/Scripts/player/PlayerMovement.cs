@@ -55,7 +55,6 @@ namespace Amheklerior.Rewind {
         }
 
         public void Move(Direction dir) {
-            _state.IsRewinding = false;
             switch (dir) {
                 case Direction.UP:
                     MoveUp();

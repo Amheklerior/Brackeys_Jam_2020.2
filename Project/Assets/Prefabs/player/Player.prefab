@@ -365,6 +365,7 @@ MonoBehaviour:
   _playerInputDisabled: {fileID: 11400000, guid: 08b1a8fba2be3484db3c730b9cd4a098,
     type: 2}
   _state: {fileID: 11400000, guid: 062dc12a04d9abb4e90966c9ad8db87c, type: 2}
+  _rewindCooldown: 0.2
 --- !u!1 &1876437731805549465
 GameObject:
   m_ObjectHideFlags: 0

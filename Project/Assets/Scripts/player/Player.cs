@@ -14,7 +14,12 @@ namespace Amheklerior.Rewind {
         [Space]
         [Header("Dependencies:")]
         [SerializeField] private PlayerState _state;
-        
+
+        [Space]
+        [Header("Settings:")]
+        [SerializeField] private float _rewindCooldown = 0.2f;
+
+
         private PlayerMovement _playerController;
         private PlayerInput _playerInput;
 
@@ -28,7 +33,7 @@ namespace Amheklerior.Rewind {
                 Debug.LogError("The player state ref is not set.", this);
             _playerController = GetComponent<PlayerMovement>();
             _playerInput = new PlayerInput();
-            _timer = new Timer(.5f, () => {
+            _timer = new Timer(_rewindCooldown, () => {
                 _state.IsRewinding = false;
                 _timer.Stop();
             });
