@@ -5,14 +5,12 @@ using Amheklerior.Core.EventSystem;
 
 namespace Amheklerior.Rewind
 {
-    public class CameraController : MonoBehaviour
+    public class CameraShakeController : MonoBehaviour
     {
         #region Inspector fields
         [Header("Events")]
         [Space]
         [SerializeField] private GameEvent _camShake;
-        [SerializeField] private GameEvent _rewindEnabled;
-        [SerializeField] private GameEvent _rewindDisabled;
 
         [Header("Parameters")]
         [Space]
@@ -28,21 +26,14 @@ namespace Amheklerior.Rewind
         private WaitForSeconds _waitForSeconds;
         #endregion
 
-        private void EnableRewind() { Debug.Log("Start REWIND"); }
-        private void DisableRewind() { Debug.Log("End REWIND"); }
-
         private void OnEnable()
         {
             _camShake.Subscribe(PlayCameraShake);
-            _rewindEnabled.Subscribe(EnableRewind);
-            _rewindDisabled.Subscribe(DisableRewind);
         }
 
         private void OnDisable()
         {
             _camShake.Unsubscribe(PlayCameraShake);
-            _rewindEnabled.Unsubscribe(EnableRewind);
-            _rewindDisabled.Unsubscribe(DisableRewind);
         }
 
         private void Awake()
