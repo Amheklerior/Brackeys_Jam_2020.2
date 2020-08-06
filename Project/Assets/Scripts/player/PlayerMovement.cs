@@ -21,6 +21,8 @@ namespace Amheklerior.Rewind {
         [SerializeField] private Transform _downPivot;
         [SerializeField] private Transform _leftPivot;
         [SerializeField] private Transform _rightPivot;
+        [SerializeField] private Transform _contactPoint;
+        [SerializeField] private GameObject _dust;
 
         [Space]
         [Header("Settings:")]
@@ -163,9 +165,13 @@ namespace Amheklerior.Rewind {
                 yield return _waitForSeconds;
             }
 
-            if (!_state.IsRewinding) 
+            if (!_state.IsRewinding) {
                 _flipCompletedEvent.Raise();
-            
+                var effect = Instantiate(_dust, _contactPoint);
+                effect.transform.parent = null;
+                effect.transform.position = _contactPoint.position;
+            }
+
             _isMoving = false;
         }
 

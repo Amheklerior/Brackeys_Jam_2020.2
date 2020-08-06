@@ -112,6 +112,8 @@ MonoBehaviour:
   _removeImprintSound: {fileID: 11400000, guid: cc652d4a94de2dc44a34e471ecb15c19,
     type: 2}
   _invalidSound: {fileID: 11400000, guid: 3eeebf4b3b0a810419e907b38d937d6e, type: 2}
+  _vfxOn: {fileID: 1628744458893394, guid: fa6ef6995f1b8a5469b5729ce521ceba, type: 3}
+  _vfxOff: {fileID: 100018, guid: ac043b68aef1430409b71207ec9e30ff, type: 3}
   _type: 1
 --- !u!82 &829174966070242453
 AudioSource:
