@@ -13,6 +13,7 @@ namespace Amheklerior.Rewind {
         [SerializeField] private GameEvent _levelCompleted;
         [SerializeField] private GameEvent _playerInputEnabled;
         [SerializeField] private GameEvent _playerInputDisabled;
+        [SerializeField] private GameEvent _irreversibleMove;
 
         [Space]
         [SerializeField] private GameObject[] _levels;
@@ -25,7 +26,7 @@ namespace Amheklerior.Rewind {
         #endregion
 
         private int _currentLevel;
-        
+
         private bool IsOnLastLevel => _currentLevel == _levels.Length - 1;
 
         private void ShowMainMenu() => _mainMenuScreen.SetActive(true);
@@ -35,18 +36,20 @@ namespace Amheklerior.Rewind {
 
         private void LoadLevel(int index) => _levels[index].SetActive(true);
         private void UnloadLevel(int index) => _levels[index].SetActive(false);
-        
+
 
         private void OnEnable() {
             _newGameEvent.Subscribe(StartNewGame);
             _levelCompleted.Subscribe(OnLevelCompleted);
+            _irreversibleMove.Subscribe(EraseMemory);
         }
 
         private void OnDisable() {
             _newGameEvent.Unsubscribe(StartNewGame);
             _levelCompleted.Unsubscribe(OnLevelCompleted);
+            _irreversibleMove.Unsubscribe(EraseMemory);
         }
-        
+
         private void StartNewGame() {
             HideMainMenu();
             LoadLevel(_currentLevel);
@@ -54,6 +57,7 @@ namespace Amheklerior.Rewind {
         }
 
         private void OnLevelCompleted() {
+            EraseMemory();
             if (IsOnLastLevel) EndGame();
             else GoToNextLevel();
         }
@@ -65,7 +69,7 @@ namespace Amheklerior.Rewind {
             LoadLevel(_currentLevel);
             _playerInputEnabled.Raise();
         }
-        
+
         private void EndGame() {
             _playerInputDisabled.Raise();
             UnloadLevel(_currentLevel);
@@ -78,6 +82,8 @@ namespace Amheklerior.Rewind {
             LoadLevel(_currentLevel);
             _playerInputEnabled.Raise();
         }
+
+        private void EraseMemory() => GlobalCommandExecutor.Clear();
 
     }
 }
