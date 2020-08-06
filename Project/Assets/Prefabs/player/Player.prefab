@@ -348,7 +348,7 @@ MonoBehaviour:
   _contactPoint: {fileID: 7336788964511859373}
   _dust: {fileID: 4861964700430775562, guid: 1e7653806efbd51488ad45c3c71fd010, type: 3}
   _deltaRotation: 5
-  _speed: 0.01
+  _speed: 0.015
   _rewindSpeeupFactor: 3
 --- !u!114 &1876437731401703472
 MonoBehaviour:

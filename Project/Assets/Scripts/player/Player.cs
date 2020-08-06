@@ -52,7 +52,7 @@ namespace Amheklerior.Rewind {
             _levelCompleted.Unsubscribe(_state.ClearMark);
         }
 
-        private void Update() {
+        private void FixedUpdate() {
             switch (_playerInput.Action) {
                 case Action.MOVE_UP:
                     if (_playerController.CanMove(PlayerMovement.Direction.UP)) {
