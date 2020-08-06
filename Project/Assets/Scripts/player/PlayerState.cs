@@ -12,7 +12,7 @@ namespace Amheklerior.Rewind {
         [SerializeField] private GameEvent _imprintRemoved;
 
         private bool _rewind;
-        private Imprint _imprint = Imprint.NONE;
+        [SerializeField]private Imprint _imprint = Imprint.NONE;
         
         private void OnDisable() => ClearMark();
         

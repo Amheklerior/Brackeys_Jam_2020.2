@@ -346,7 +346,7 @@ MonoBehaviour:
   _leftPivot: {fileID: 1876437730451288758}
   _rightPivot: {fileID: 1876437731805549464}
   _deltaRotation: 5
-  _speed: 0.012
+  _speed: 0.01
   _rewindSpeeupFactor: 3
 --- !u!114 &1876437731401703472
 MonoBehaviour:
