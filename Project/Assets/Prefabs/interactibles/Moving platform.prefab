@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 11400000, guid: 062dc12a04d9abb4e90966c9ad8db87c, type: 2}
+  _interactSound: {fileID: 11400000, guid: 6c50403d84e94864090bb68adc893b37, type: 2}
   _requiredImprint: 2
   _onInteract:
     m_PersistentCalls:
