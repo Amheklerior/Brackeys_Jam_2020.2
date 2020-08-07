@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8452141153742630598}
   - component: {fileID: 8452141153742630599}
   - component: {fileID: 8452141153742630616}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Edge_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 8452141153925590103}
   - component: {fileID: 8452141153925590120}
   - component: {fileID: 8452141153925590121}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Edge_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 8452141154124344717}
   - component: {fileID: 8452141154124344718}
   - component: {fileID: 8452141154124344719}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Edge_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 8452141155184756714}
   - component: {fileID: 8452141155184756715}
   - component: {fileID: 8452141155184756716}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Edge_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8452141155465048492}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Boundaries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8452141155465048491}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.75, y: 0.5, z: 4.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

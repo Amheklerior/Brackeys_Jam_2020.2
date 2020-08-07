@@ -4,6 +4,7 @@ using Amheklerior.Core.EventSystem;
 namespace Amheklerior.Rewind {
 
     public class UIManager : MonoBehaviour {
+
         [SerializeField] private GameObject _cubeTitle;
 
         [Header("Game events:")]
@@ -11,7 +12,7 @@ namespace Amheklerior.Rewind {
 
         public void PlayButtonClicked()
         {
-            _cubeTitle.SetActive(false);
+            //_cubeTitle.SetActive(false);
             _startNewGame.Raise();
         }
 

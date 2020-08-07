@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1569147503158115947}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7170611121789068172}
   - component: {fileID: 6945490516806973285}
   - component: {fileID: 6904195641372301326}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,17 +370,9 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_IsSelectable: 1
-  m_SelectedFaces: 05000000
-  m_SelectedEdges:
-  - a: 20
-    b: 21
-  - a: 21
-    b: 22
-  - a: 23
-    b: 20
-  - a: 22
-    b: 23
-  m_SelectedVertices: 14000000150000001600000017000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!64 &7170611121789068172
 MeshCollider:
   m_ObjectHideFlags: 0
