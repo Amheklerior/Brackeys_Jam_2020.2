@@ -12,21 +12,25 @@ namespace Amheklerior.Rewind {
         [SerializeField] private GameObject _mainmenuCanvas;
         [SerializeField] private GameObject _controlsCanvas;
 
-        public void PlayButtonClicked()
-        {
-            _startNewGame.Raise();
-        }
-
-        public void ControlsButtonClicked()
-        {
+        public void PlayButtonClicked() => _startNewGame.Raise();
+        
+        public void ControlsButtonClicked() {
             _mainmenuCanvas.SetActive(false);
             _controlsCanvas.SetActive(true);
         }
 
-        public void BackBtnControlsClicked()
-        {
+        public void BackBtnControlsClicked() {
             _controlsCanvas.SetActive(false);
             _mainmenuCanvas.SetActive(true);
         }
+
+        public void Quit() {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
     }
+    
 }
