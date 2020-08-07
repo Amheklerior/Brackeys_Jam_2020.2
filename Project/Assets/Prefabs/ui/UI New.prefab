@@ -1099,7 +1099,7 @@ GameObject:
   - component: {fileID: 2443003181630926305}
   - component: {fileID: 2137210390916424377}
   m_Layer: 0
-  m_Name: Logo 2
+  m_Name: Img 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 893078284898004412}
   - component: {fileID: 1610121721288521501}
   m_Layer: 0
-  m_Name: Logo 2
+  m_Name: Img 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1404,7 +1404,7 @@ GameObject:
   - component: {fileID: 6455772427343857646}
   - component: {fileID: 5624004391712117833}
   m_Layer: 0
-  m_Name: Logo 1
+  m_Name: Img 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2140,7 +2140,7 @@ GameObject:
   - component: {fileID: 1968541802911318672}
   - component: {fileID: 8193832756069683288}
   m_Layer: 0
-  m_Name: Logo 1
+  m_Name: Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2214,7 +2214,7 @@ GameObject:
   - component: {fileID: 5926680637599214256}
   - component: {fileID: 2641935903524476176}
   m_Layer: 0
-  m_Name: Logo 2
+  m_Name: Img 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2288,7 +2288,7 @@ GameObject:
   - component: {fileID: 3281147620605991776}
   - component: {fileID: 1405084885837390282}
   m_Layer: 0
-  m_Name: Logo 2
+  m_Name: Img 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2902,7 +2902,7 @@ GameObject:
   - component: {fileID: 8940575086831904730}
   - component: {fileID: 748876229733119150}
   m_Layer: 0
-  m_Name: Logo 1
+  m_Name: Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3666,7 +3666,7 @@ GameObject:
   - component: {fileID: 405817894500400389}
   - component: {fileID: 2891159879381252578}
   m_Layer: 0
-  m_Name: Logo 1
+  m_Name: Img 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4350,7 +4350,7 @@ GameObject:
   - component: {fileID: 3474137415860670160}
   - component: {fileID: 5467332595968485266}
   m_Layer: 0
-  m_Name: Logo 1
+  m_Name: Img 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4784,7 +4784,7 @@ GameObject:
   - component: {fileID: 1440807496817395259}
   - component: {fileID: 5519535985466997599}
   m_Layer: 0
-  m_Name: Logo 1
+  m_Name: Img 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
