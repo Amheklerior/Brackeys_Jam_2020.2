@@ -381,7 +381,7 @@ MonoBehaviour:
   _rightPivot: {fileID: 1876437731805549464}
   _contactPoint: {fileID: 7336788964511859373}
   _deltaRotation: 5
-  _speed: 0.02
+  _speed: 0.015
   _rewindSpeeupFactor: 3
 --- !u!114 &1876437731401703472
 MonoBehaviour:
