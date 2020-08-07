@@ -3151,7 +3151,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2049248354}
     - target: {fileID: 3319170812790136396, guid: 609e0821202577049a5764e7d7262ee0,
         type: 3}
       propertyPath: m_Mesh
@@ -3231,7 +3231,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 417234582}
     - target: {fileID: 5702806214700078771, guid: 609e0821202577049a5764e7d7262ee0,
         type: 3}
       propertyPath: m_Mesh
@@ -3241,12 +3241,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1791278710}
     - target: {fileID: 8480880154824881682, guid: 609e0821202577049a5764e7d7262ee0,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 638183604}
     - target: {fileID: 8520020840120769802, guid: 609e0821202577049a5764e7d7262ee0,
         type: 3}
       propertyPath: m_Mesh
