@@ -10,25 +10,15 @@ namespace Amheklerior.Rewind {
 
         [SerializeField] private int _distance;
 
-        public void MoveNorthEast() {
-            var destination = Vector3.forward * _distance;
-            MakeMove(destination);
-        }
-
-        public void MoveNorthWest()
-        {
-            var destination = Vector3.left * _distance;
-            MakeMove(destination);
-        }
-
-        public void MoveUp()
-        {
-            var destination = Vector3.up * _distance;
-            MakeMove(destination);
-        }
-
-        private void MakeMove(Vector3 destination)
-        {
+        [ContextMenu("Move North East")]
+        public void MoveNorthEast() => MakeMove(Vector3.forward * _distance);
+        
+        [ContextMenu("Move North West")]
+        public void MoveNorthWest() => MakeMove(Vector3.left * _distance);
+        
+        public void MoveUp() => MakeMove(Vector3.up * _distance);
+        
+        private void MakeMove(Vector3 destination) {
             transform.Translate(destination);
             _playerCheckersGroup.Translate(destination, Space.World);
             _playerPivotGroup.Translate(destination, Space.World);
