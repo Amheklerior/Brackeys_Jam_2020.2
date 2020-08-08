@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Amheklerior.Core.EventSystem;
 using Amheklerior.Core.Command;
+using System.Collections.Generic;
 
 namespace Amheklerior.Rewind {
 
@@ -26,6 +27,7 @@ namespace Amheklerior.Rewind {
         #endregion
 
         private int _currentLevel;
+        private List<GameObject> tails = new List<GameObject>();
 
         private bool IsOnLastLevel => _currentLevel == _levels.Length - 1;
 
@@ -57,6 +59,7 @@ namespace Amheklerior.Rewind {
         }
 
         private void OnLevelCompleted() {
+            destroyTails();
             EraseMemory();
             if (IsOnLastLevel) EndGame();
             else GoToNextLevel();
@@ -85,5 +88,22 @@ namespace Amheklerior.Rewind {
 
         private void EraseMemory() => GlobalCommandExecutor.Clear();
 
+
+        public void addTail(GameObject tail)
+        {
+            Debug.Log(tails.Count);
+            tails.Add(tail);
+        }
+
+        private void destroyTails()
+        {
+            Debug.Log("tail R");
+            foreach(GameObject tail in tails)
+            {
+                Debug.Log("tail removed");
+                Destroy(tail);
+                tails.Remove(tail);
+            }
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace Amheklerior.Rewind {
         [SerializeField] private Transform _rightPivot;
         [SerializeField] private Transform _contactPoint;
         [SerializeField] private GameObject _tail;
+        [SerializeField] private GameManager _gameManager;
 
         [Space]
         [Header("Settings:")]
@@ -173,6 +174,7 @@ namespace Amheklerior.Rewind {
                 var effect = Instantiate(_tail, _contactPoint);
                 effect.transform.parent = null;
                 effect.transform.position = pos;
+                _gameManager.addTail(effect);
             }
 
             _isMoving = false;
