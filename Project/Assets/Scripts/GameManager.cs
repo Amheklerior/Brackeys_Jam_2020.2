@@ -27,7 +27,7 @@ namespace Amheklerior.Rewind {
         #endregion
 
         private int _currentLevel;
-        private List<GameObject> tails = new List<GameObject>();
+        private static List<GameObject> tails = new List<GameObject>();
 
         private bool IsOnLastLevel => _currentLevel == _levels.Length - 1;
 
@@ -87,23 +87,12 @@ namespace Amheklerior.Rewind {
         }
 
         private void EraseMemory() => GlobalCommandExecutor.Clear();
-
-
-        public void addTail(GameObject tail)
-        {
-            Debug.Log(tails.Count);
-            tails.Add(tail);
-        }
-
-        private void destroyTails()
-        {
-            Debug.Log("tail R");
-            foreach(GameObject tail in tails)
-            {
-                Debug.Log("tail removed");
-                Destroy(tail);
-                tails.Remove(tail);
-            }
+        
+        public void addTail(GameObject tail) => tails.Add(tail);
+        
+        private void destroyTails() {
+            foreach(GameObject tail in tails) Destroy(tail);
+            tails.Clear();
         }
     }
 }
