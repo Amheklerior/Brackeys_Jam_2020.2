@@ -22,7 +22,8 @@ namespace Amheklerior.Rewind {
         [SerializeField] private Transform _leftPivot;
         [SerializeField] private Transform _rightPivot;
         [SerializeField] private Transform _contactPoint;
-        //[SerializeField] private GameObject _dust;
+        [SerializeField] private GameObject _tail;
+        [SerializeField] private GameManager _gameManager;
 
         [Space]
         [Header("Settings:")]
@@ -166,11 +167,15 @@ namespace Amheklerior.Rewind {
             }
 
             if (!_state.IsRewinding) _flipCompletedEvent.Raise();
-            /*
-                var effect = Instantiate(_dust, _contactPoint);
+
+            if (_tail != null)
+            {
+                Vector3 pos = new Vector3(_contactPoint.position.x, _contactPoint.position.y + 0.01f, _contactPoint.position.z);
+                var effect = Instantiate(_tail, _contactPoint);
                 effect.transform.parent = null;
-                effect.transform.position = _contactPoint.position;
-            */
+                effect.transform.position = pos;
+                _gameManager.addTail(effect);
+            }
 
             _isMoving = false;
         }

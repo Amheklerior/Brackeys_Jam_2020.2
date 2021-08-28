@@ -75,8 +75,30 @@ namespace Amheklerior.Rewind
                 },
                 {
                     ""name"": """",
+                    ""id"": ""427f2a71-74f8-4640-a0c1-4380eeff2653"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ae34e26f-e55d-48fd-9609-24431caba704"",
                     ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac77c18c-a51f-43e0-9b67-45fae8f89c09"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -97,6 +119,17 @@ namespace Amheklerior.Rewind
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a2a4d004-f4e4-4574-afef-8bcaffff6cf4"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e79ee350-e678-468a-9d3c-17f133327df8"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
@@ -108,8 +141,30 @@ namespace Amheklerior.Rewind
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c96022ca-ed57-4129-8ee2-27128e5c414e"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""f4631815-d345-47e8-baeb-1dc1c4408dc0"",
-                    ""path"": ""<Keyboard>/backspace"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rewind"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95bb0a39-bb48-4c66-ac0c-b2607854deec"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

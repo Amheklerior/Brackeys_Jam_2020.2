@@ -380,6 +380,9 @@ MonoBehaviour:
   _leftPivot: {fileID: 1876437730451288758}
   _rightPivot: {fileID: 1876437731805549464}
   _contactPoint: {fileID: 7336788964511859373}
+  _tail: {fileID: 9056086506626137613, guid: 5c907ab6d89f6e943b904f4f03fd65d2, type: 3}
+  _gameManager: {fileID: 6947325521892672121, guid: d629d83c134d2224a8aac2aa9ab29af7,
+    type: 3}
   _deltaRotation: 5
   _speed: 0.015
   _rewindSpeeupFactor: 3
